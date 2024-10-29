@@ -1,0 +1,67 @@
+<div style="padding-top: 70px;">
+    <div class="row">
+        <div class="col-7 text-center">
+            <img width="500px" src="https://i.pinimg.com/originals/dd/f7/62/ddf7620b1a1af96d24f1413bb336f096.gif"
+                alt="">
+        </div>
+        <div class="col-5">
+            <form [formGroup]="loginForm" class="text-center p-4 form-control">
+
+                <div class="m-3">
+                    <h3>SHOPPIFII</h3>
+                    <p class="fw-2 text-primary"><b>Log In</b></p>
+                </div>
+
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input formControlName="email" type="email" id="form2Example1" class="form-control" />
+                    <div *ngIf="loginForm.get('email')?.errors && this.loginForm.get('email')?.touched"
+                        class="text-danger fw-bolder">* Invalid Email</div>
+                </div>
+
+                <!-- Password input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input formControlName="password" type="password" id="form2Example2" class="form-control" />
+                    <div *ngIf="loginForm.get('password')?.errors && this.loginForm.get('password')?.touched"
+                    class="text-danger fw-bolder">* Invalid Password</div>                </div>
+
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                    <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
+                            <label class="form-check-label" for="form2Example34"> Remember me </label>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <!-- Simple link -->
+                        <a href="#!">Forgot password?</a>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <button (click)="login()" data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p>Not a member? <button class="btn btn-secondary" routerLink="/user/register">Register
+                            here...</button></p>
+                    <p>or sign up with:</p>
+                    <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+
+                    <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                    </button>
+
+                    <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-instagram"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
