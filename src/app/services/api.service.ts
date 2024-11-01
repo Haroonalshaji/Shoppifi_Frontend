@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  baseUrl = "https://shoppifi-backend.onrender.com"
+  // baseUrl = "https://shoppifi-backend.onrender.com"
+  baseUrl = "http://localhost:3000"
 
   constructor(private http: HttpClient) { }
 
@@ -51,6 +52,11 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/add-cart`, product, this.appendToken())
   }
 
+  addToCartFromWishlist(product: any) {
+    return this.http.post(`${this.baseUrl}/add-to-cart-fromWishlist`, product, this.appendToken());
+  }
+
+
   getCart() {
     return this.http.get(`${this.baseUrl}/get-cart`, this.appendToken())
   }
@@ -59,8 +65,8 @@ export class ApiService {
     return this.http.delete(`${this.baseUrl}/delete-cart/${id}`, this.appendToken())
   }
 
-  decrementItemFromCart(id: any) {
-    return this.http.post(`${this.baseUrl}/decrement-cart/${id}`, this.appendToken())
+  decrementItemFromCart(products: any, id: any) {
+    return this.http.post(`${this.baseUrl}/decrement-cart/${id}`, products, this.appendToken())
   }
 
 }

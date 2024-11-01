@@ -30,10 +30,15 @@ export class WishlistComponent implements OnInit {
   }
 
   addToCartfromWishlist(product: any) {
-    this.api.addToCart(product).subscribe((res: any) => {
+    this.api.addToCartFromWishlist(product).subscribe((res: any) => {
       console.log(res);
-      alert(res);
-      this.deleteWishlistProduct;
+
+      if (res === "Product already exists in the cart") {
+        alert(res);
+      } else {
+        alert(res);
+        this.deleteWishlistProduct(product.id);
+      }
     })
   }
 

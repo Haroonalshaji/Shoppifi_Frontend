@@ -22,7 +22,7 @@
                             <td>{{product.title}}</td>
                             <td><img width="100px" [src]="product.image" alt=""></td>
                             <td class="d-flex">
-                                <button (click)="decrementPdtQuantity(product.id)"
+                                <button (click)="decrementPdtQuantity(product.id,product)"
                                     class="btn btn-secondary mx-2">-</button>
                                 <input readonly type="text" [value]="product.quantity" class="form-control">
                                 <button (click)="incrementPdtQuantity(product,products)"

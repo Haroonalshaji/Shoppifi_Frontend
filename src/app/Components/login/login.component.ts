@@ -21,9 +21,12 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
-      const email = this.loginForm.value.email;
-      const password = this.loginForm.value.password
+      const email = this.loginForm.value.email || '';
+      const password = this.loginForm.value.password || '';
       console.log(email, password);
+
+      sessionStorage.setItem('Email', email);
+      sessionStorage.setItem('Password', password);
 
       const user = { email, password };
       this.api.login(user).subscribe({

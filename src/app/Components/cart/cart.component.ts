@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
 
   incrementPdtQuantity(products: any[], product: any) {
     this.api.addToCart(products).subscribe((res: any) => {
-      alert(res)
+      // alert(res)
       product.quantity++;
       this.totalPrice = this.sumOfProducts(this.products);
       this.getCartProduct();
@@ -27,10 +27,10 @@ export class CartComponent implements OnInit {
   }
 
 
-  decrementPdtQuantity(id: any) {
-    this.api.decrementItemFromCart(id).subscribe({
+  decrementPdtQuantity(products: any,id: any) {
+    this.api.decrementItemFromCart(id,products).subscribe({
       next: (res: any) => {
-        alert(res);
+        // alert(res);
         this.getCartProduct();
       },
       error: (err: any) => {
